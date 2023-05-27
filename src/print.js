@@ -1,7 +1,9 @@
+let i=0;
 export default function printMe(){
-    alert('I get called from print.js')
+    i++;
+    console.log('I get called from print.js ',i)
 }
 
 export function sayMyName(){
-    alert('My name is Anwar Sadat Ayub')
+    console.log('My name is Abdul Jaleel')
 }

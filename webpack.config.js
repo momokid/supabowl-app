@@ -1,13 +1,21 @@
-const path = require.ensure('path')
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 //entry: './src/index.js',
+mode:'development',
     entry:{
-                index:'./src/index.js',
-                print: './src/print.js',
-            },
-
+        index:'./src/index.js',
+        // index:{
+        //     import:'./src/index.js',
+        //     dependOn:'shared',
+        // },
+        // another:{
+        //     import:'./src/another-module.js',
+        //     dependOn: 'shared',
+        // },
+        // shared:'lodash',
+     },
     module:{
         rules:[
             {
@@ -31,15 +39,26 @@ module.exports = {
             }
         ],
     },
+    devtool:'inline-source-map',
+    devServer:{
+        static:'./static'
+    },
     plugins:[
         new HtmlWebpackPlugin({
-            title:'SupaBOwl'
+            title:'Development - SupaBawwl'
         })
     ],
     output:{
         //filename:'bundle.js',
         filename:'[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+       // clean:true,
     },
-    watch:true,
+    // optimization:{
+    //     // runtimeChunk:'single',
+    //     splitchunks:{
+    //         chunks:'all',
+    //     }
+    // }
+    //watch:true,
 };
